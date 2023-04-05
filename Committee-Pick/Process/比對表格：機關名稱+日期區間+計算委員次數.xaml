@@ -1,0 +1,268 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="比對表格_機關名稱_日期區間_計算委員次數" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="In_查詢機關" Type="InArgument(x:String)" />
+    <x:Property Name="In_查詢起始日" Type="InArgument(s:DateTime)" />
+    <x:Property Name="In_查詢終止日" Type="InArgument(s:DateTime)" />
+    <x:Property Name="Out_參加次數" Type="OutArgument(x:Int32)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>798,2700.4</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>比對表格_機關名稱_日期區間_計算委員次數_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.CV</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.ExtractData</x:String>
+      <x:String>UiPath.DataTableUtilities</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="比對表格_機關名稱_日期區間_計算委員次數" sap:VirtualizedContainerService.HintSize="785.6,2635.2" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <Assign sap:VirtualizedContainerService.HintSize="723.6,81.2" sap2010:WorkflowViewState.IdRef="Assign_4">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:Int32">[Out_參加次數]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:Int32">0</InArgument>
+      </Assign.Value>
+    </Assign>
+    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Chrome: 政府電子採購網-標案查詢標案查詢" sap:VirtualizedContainerService.HintSize="723.6,2402.8" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" ScopeGuid="eb5249f2-70f5-426b-96e8-2c0bad27957f" Version="V2">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="689.6,2186" sap2010:WorkflowViewState.IdRef="Sequence_3">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="sd:DataTable" Name="委員查詢次數表" />
+            </Sequence.Variables>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <uix:NClick ClickType="Single" DisplayName="Click '查詢'" sap:VirtualizedContainerService.HintSize="627.6,156.8" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="eb5249f2-70f5-426b-96e8-2c0bad27957f" Version="V3">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="https://web.pcc.gov.tw/prkms/tender/org/bulletion/readBulletion?querySentence=%E8%A8%B1%E6%98%8E%E6%BA%AA%20&amp;tenderStatusType=%E6%8B%9B%E6%A8%99&amp;sortCol=TENDER_NOTICE_DATE&amp;timeRange=112&amp;pageSize=100" DesignTimeRectangle="1070, 1027, 90, 42" DesignTimeScaleFactor="1.25" ElementType="Text" FriendlyName="'查詢'" FullSelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl tableRow='13' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' tag='A' class='' aaname='查詢' check:innerText='查詢' /&gt;" Guid="7afccfc8-7464-4c64-8011-f1b232933e60" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAF4AAAAuCAYAAACh8K6vAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAJOgAACToAYJjBRwAAAOfSURBVHhe7Zs9a9tAHIc7ldJOhQ6lGT2Xzt0MHfoNPJYOoXRIp9ApnTJ6MKZQGkiJh4YkJDiYgGkTOwmBowYLB1NhbCVxkHEo+Ra/3l8v9lk6qVFqRQbd8AzyvWA/uvvdyejuPX02B8Xdo8QnRKD4x9lXePT2HR58XML9T8uKCJAzckcOZW4Jn/gnz1/g4fsP0g4V0SGX5NTreUI8VVAjfPqQU6/8CfFqpMcHuRVdj8RTHskaKKaHmPkj8bQYyCorpgc59olX2R4/5NgnXlZRMX2U+IRQ4hNCiU8IJT4hlPiEmFHxW1g6PsHKQRlZaXkQBWQ3qljRGJbysvIyL2sgX15Fxld2t8yo+EOwP0Ncm00sSMuDWWyZuOZttZNVX1lmv22VXf+upVX8NjYNE4NBMJYgjqxsRLvm9LeOYksH0znnTluza1/rDItWnTWUDOrTRHV/Hbnvfl5/Fr9jvMye+CtbeDTxZeyak+3G6CjyOtm6joG0fAw78n7P+EhIvIwvmD/WYXiFXJnQ9SaK/5PL+Z+oD6m/PjRrFnhwZknKxBeQ22Ng7ogdnmG3yq8t6X3ol87nxOAMdVZFTrZwVngbidRSZQ3Fji3W0Mrym3ekp0k8H+H1Jpgg1tBPMG/l7OTimvla5hneHccQnwWaVsMbMZMdeV7YaWscMUNvXLWRF9qmQPwWSueCoEsdmz+2hYWOQaPPzRaWhcUvt1FBUeM3wGk30Gt4Ke1fZBXF0y6MgdPGlW7dRDv/F7S+VZaKEZ/Za/K8ZaiKN+Cm9BiWG3w//k3o86AtjOQx9QMqdxdfWzTVL3bG16kS72ILMMEa/IGJHprCaDg7k86hv68biT9D1emreqHEWz/a6PkXRh89W5BUfChB201RfB+7O7K28TAz4iNx6xHfRclZL0o9uk69+Bv+6J2mvc+XiXd3Ne7OxdkB2fERnvGRvsOUmBHxEQkR7+b0ZG6Po2Y0G4RdTSrFLzJJlv8LVvH3FSo+6C8Kex9vi+9iRfqPZjwkLn5qhEZNGP4YugsSE3+riPEiRk4U8TsMrOPMHsPZKV00kPPWi5HExN8qYryIkeOJmvlf/AmX3wB7V+PFs700u9gsFyT14iMx8WlHiU8IJT4hlPiE8IlXL63Gj/SlVfWadvxIX9NWBxPiR3owgVBHceIj8CgOoQ6fxQM5DT18RlAFNfKnB7n0Sid84l0oj2gxUDMgOuSM3ImZ7iVQvCJelPhEmMNfGNTV0KZS69AAAAAASUVORK5CYII=" InformativeScreenshot="f04d8fd259383ff1d8ee19a81c7730c1.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='政府電子採購網-標案查詢標案查詢' /&gt;" SearchSteps="FuzzySelector, Image" Version="V2" Visibility="Interactive" />
+              </uix:NClick.Target>
+            </uix:NClick>
+            <uix:NExtractData AppendResults="False" ContinueOnError="True" DataTable="[委員查詢次數表]" DisplayName="Extract Table Data" ExtractDataSettings="&lt;Table xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema' Type='Table'&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='項次' ReferenceIdx='0' Name='項次'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='種類' ReferenceIdx='1' Name='種類'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='機關名稱' ReferenceIdx='2' Name='機關名稱'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='標案案號&amp;#xA;標案名稱' ReferenceIdx='3' Name='標案案號 標案名稱'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='標案案號&amp;#xA;標案名稱 Url' ReferenceIdx='4' Name='標案案號 標案名稱 Url'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='招標公&amp;#xA;告日期' ReferenceIdx='5' Name='招標公 告日期'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='決標或&amp;#xA;無法決標公告' ReferenceIdx='6' Name='決標或 無法決標公告'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='截止投&amp;#xA;標日期' ReferenceIdx='7' Name='截止投 標日期'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='公開閱覽/&amp;#xA;徵求日期' ReferenceIdx='8' Name='公開閱覽/ 徵求日期'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='預告公&amp;#xA;告日期' ReferenceIdx='9' Name='預告公 告日期'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='功能選項' ReferenceIdx='10' Name='功能選項'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='功能選項 Url' ReferenceIdx='11' Name='功能選項 Url'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&lt;/Table&gt;" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' columns_name_source='Longest'&gt;&lt;column name='項次' attr='text' /&gt;&lt;column name='種類' attr='text' /&gt;&lt;column name='機關名稱' attr='text' /&gt;&lt;column name='標案案號&amp;#xA;標案名稱' attr='text' name2='標案案號&amp;#xA;標案名稱 Url' attr2='href' /&gt;&lt;column name='招標公&amp;#xA;告日期' attr='text' /&gt;&lt;column name='決標或&amp;#xA;無法決標公告' attr='text' /&gt;&lt;column name='截止投&amp;#xA;標日期' attr='text' /&gt;&lt;column name='公開閱覽/&amp;#xA;徵求日期' attr='text' /&gt;&lt;column name='預告公&amp;#xA;告日期' attr='text' /&gt;&lt;column name='功能選項' attr='text' name2='功能選項 Url' attr2='href' /&gt;&lt;/extract-table&gt;" sap:VirtualizedContainerService.HintSize="627.6,156.4" sap2010:WorkflowViewState.IdRef="NExtractData_1" LimitExtractionTo="None" MaximumResults="0" ScopeIdentifier="eb5249f2-70f5-426b-96e8-2c0bad27957f" Version="V3">
+              <uix:NExtractData.Target>
+                <uix:TargetAnchorable DesignTimeRectangle="609, 537, 1013, 11816" DesignTimeScaleFactor="1.25" FriendlyName="'項次種類  機關名稱  標案案號標案名稱  招…'" FullSelectorArgument="&lt;webctrl id='bulletion' tag='TABLE' /&gt;" Guid="171ab24d-d8f1-4219-b21b-db6955d63078" InformativeScreenshot="34e642dcb053f276ec617af4057f226c.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='政府電子採購網-標案查詢標案查詢' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+              </uix:NExtractData.Target>
+            </uix:NExtractData>
+            <If Condition="[委員查詢次數表.RowCount() &gt; 1]" DisplayName="If 委員查詢次數表超過一列表頭才做" sap:VirtualizedContainerService.HintSize="627.6,1678.4" sap2010:WorkflowViewState.IdRef="If_2">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <If.Then>
+                <Sequence sap:VirtualizedContainerService.HintSize="592,1489.6" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[委員查詢次數表]" DisplayName="For Each Row in Data Table委員查詢次數表" sap:VirtualizedContainerService.HintSize="530,1375.2" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+                    <ui:ForEachRow.Body>
+                      <ActivityAction x:TypeArguments="sd:DataRow">
+                        <ActivityAction.Argument>
+                          <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
+                        </ActivityAction.Argument>
+                        <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="496,1258.4" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                          <Sequence.Variables>
+                            <Variable x:TypeArguments="x:String" Name="暫存_機關名稱" />
+                            <Variable x:TypeArguments="x:String" Name="暫存_招標公告日期字串" />
+                            <Variable x:TypeArguments="s:DateTime" Name="暫存_招標公告日期" />
+                          </Sequence.Variables>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ui:GetRowItem Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="機關名稱" DisplayName="Get Row Item" sap:VirtualizedContainerService.HintSize="434,186.4" sap2010:WorkflowViewState.IdRef="GetRowItem_1" Row="[CurrentRow]">
+                            <ui:GetRowItem.Value>
+                              <OutArgument x:TypeArguments="x:String">[暫存_機關名稱]</OutArgument>
+                            </ui:GetRowItem.Value>
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </ui:GetRowItem>
+                          <ui:GetRowItem Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="招標公 告日期" DisplayName="Get Row Item" sap:VirtualizedContainerService.HintSize="434,186.4" sap2010:WorkflowViewState.IdRef="GetRowItem_2" Row="[CurrentRow]">
+                            <ui:GetRowItem.Value>
+                              <OutArgument x:TypeArguments="x:String">[暫存_招標公告日期字串]</OutArgument>
+                            </ui:GetRowItem.Value>
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </ui:GetRowItem>
+                          <Assign sap:VirtualizedContainerService.HintSize="434,81.6" sap2010:WorkflowViewState.IdRef="Assign_1">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="s:DateTime">[暫存_招標公告日期]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="s:DateTime">[DateTime.ParseExact(暫存_招標公告日期字串.ToString,"yyy/MM/dd",System.Globalization.CultureInfo.InvariantCulture)]</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                          <Assign sap:VirtualizedContainerService.HintSize="434,81.6" sap2010:WorkflowViewState.IdRef="Assign_2">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="s:DateTime">[暫存_招標公告日期]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="s:DateTime">[暫存_招標公告日期.AddYears(1911)]</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,92" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;暫存_招標公告日期=&quot; + 暫存_招標公告日期.ToString]" />
+                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,92" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;In_查詢起始日=&quot; + In_查詢機關.ToString]" />
+                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,92" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;In_查詢終止日=&quot; + In_查詢終止日.ToString]" />
+                          <If Condition="[暫存_機關名稱.Equals(In_查詢機關) And (In_查詢起始日&lt;=暫存_招標公告日期) And (暫存_招標公告日期&lt;=In_查詢終止日)]" DisplayName="If 機關名稱==查詢機關 then 參加次數+1" sap:VirtualizedContainerService.HintSize="434,52" sap2010:WorkflowViewState.IdRef="If_1">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <If.Then>
+                              <Sequence sap:VirtualizedContainerService.HintSize="496,196" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <Assign sap:VirtualizedContainerService.HintSize="434,81.6" sap2010:WorkflowViewState.IdRef="Assign_3">
+                                  <Assign.To>
+                                    <OutArgument x:TypeArguments="x:Int32">[Out_參加次數]</OutArgument>
+                                  </Assign.To>
+                                  <Assign.Value>
+                                    <InArgument x:TypeArguments="x:Int32">[Out_參加次數+1]</InArgument>
+                                  </Assign.Value>
+                                </Assign>
+                              </Sequence>
+                            </If.Then>
+                            <If.Else>
+                              <Sequence sap2010:WorkflowViewState.IdRef="Sequence_5">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                              </Sequence>
+                            </If.Else>
+                          </If>
+                        </Sequence>
+                      </ActivityAction>
+                    </ui:ForEachRow.Body>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:ForEachRow>
+                </Sequence>
+              </If.Then>
+              <If.Else>
+                <Sequence sap2010:WorkflowViewState.IdRef="Sequence_7">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </Sequence>
+              </If.Else>
+            </If>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="0, 0, 0, 0" BrowserType="Chrome" IconBase64="iVBORw0KGgoAAAANSUhEUgAAAE4AAABOCAMAAAC5dNAvAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAMAUExURUW3reT0863f2xunmhmmmfz+/qLb1iSqnvf8+9Dt6iarn97y8Pr9/WjFvDy0qSGpnUe4rtbv7R6onFC7sXbKwi+voymsoPT7+oTPyFW9tCytotPu7F3BuJzZ06Xc1zSxpTqzqIbQynvMxcXp5jeyp5HVz+n39c7s6ZfX0e/5+Ob19GvGvrXi3n7Nxr3m4tvx71K8s4zTzPH6+UK2q+z493DIwMPo5GPDupTW0HnLxKre2brl4TGwpG7Hvz+1quHz8rLh3U26sFi+tfj8/BelmMDn48vr6LDg3MTo5SOqnsjq51u/thqmmv7+/vf8/PD5+GzGvuf29IHOx/v9/WDCuR+pnO3497vl4f7//4/UzTiypzGvpE+7sfn9/DCvpK/g3P3+/t/z8aTc15/a1SCpnCKqnTOwpWXEu4XQyf7//h2om/b8+4LPyKfd2GnFvbjj3/P7+qvf2uT18zKwpLPi3ZDUzmfEvDyzqVO8s6Pb1rrk4MXp5UO2rJrY0kC1qub29IbRyrnk4NTu7GbEvJfW0dnw7s7s6iutooTPyeX1823Hv/v+/ev39trx777m4u749/H5+XzNxYDOx+z39ky6sHXJwkm5r4PPyFC8svL6+ZHUzl3At5XW0HLJwUi4rn/Ox0q5r1q/tl7BuDuzqSutoTWxpr3l4jaxpi2uonfKw6je2DCvo6ne2fn9/dzx78bp5kS3rD+0qki5rtHt67fj36Da1YnRy1G7svX7+2LCunrMxNLu6xynm8zr6DmyqMnq59fw7RynmqPc1xalmP///////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGQkIbsAAADGdFJOU///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////AMYa5+oAAAAJcEhZcwAAJOgAACToAYJjBRwAAAaVSURBVFhH7Zhld9tIFIadyhDbSQwhx2HmhqFNusEGysyw0G5p2y4zMzMzMzPTO/pfe2fmSpZsJ9m0e/ZTn3PaXHtmHksDVzPymP8pF3Tnzv+tOxi+q3bL7yd3fvLwg4e/2Sz424VYVLfn8+F34OLo9Te/xIVZWUR3x/EQS4xCwFPCH/D67jyukcmCuj9vlE0L6F+gpTQHWCHOyg+jAfrPuO5HrpXOArpwH7XytHRdBBT2C6F0wpcA4vUdFQYw/XL2K8yqO/UaySbLRV43cCxPWDohqoCSsGitiwOhW7INSzbdHzuB6DpqXQdU+KTG0onLgJpc+jzgBdZs5/oOMnUbXwAiq2XbtdR31JawdWIVsEr+jVFHXvMoN0mRodv+A3VaWLbIa4ARlIFTl1sDb7kKioC/HuNGNum6TV8BnbK7hGgBalXg1Il1NDg66qBBvp+bWaTpphrg9evauUkUl+rQqRP5gOxXIpbE9C/ckHHrfLfCO67ryl6v4tClGzNQxmFOMbxbuanGpRNbADUIhG8USX3ThFMn2gHVe0Q4iXcPcmOFS3eYpttEl665EtirI8KlK+fBFaK0jubLkHP+OXVNXtCEN2p7ZdV8xGk5MC6dmECJmo0riqk28C03lzh0Iorqpk76vUCiTZTGsUO1Vbh1fmClyK2qoXspC7djfhMLCIduN7wzQgSjVAuTNKtmuTXh1rV6UVYkU0GSOrq3GFewgEjpHilBkardfIyukGicUbckcem6VtNNEtEVqvwsjCdZ4dRdhUCrqi5EUy1nOk+Rf1AuDNaFg/5Et7wswJvfrKoSk+hkhUO38ZC9BggaPX2JmlGgmkMJ9X8PVyTqET/FkpTuCxhNXE5QJmrOGU90R1iQwlNUFRNJVHBFSRSXsiSlewVruFQygLjuuP5g8LR/mBZWd63fPxNUuUGIHSjRgWIWz7PE1k0ZuI9LJX2Y4EjhHlkhhoE2DglfNaylZuneR5QLJb64NfE16TpaMoMcSmrRwhpLdwaNXCYZAyo5VKTr0spjmGSNpbscMS6T0K/Xc6hI14kI6jhSFAdOaA3rNiNkz1mCBpY7XZOhq6GV7yAfXdrDujk7hyl6AP2QYDJ0ZXiTI0UlTmsP61qwjUsURa6JkEW3BtUcKeqtdcu6LeCUrslHDUeaDF0nAhwp2vC29rDuAKUcB+vh4UiToauFlyON8aX2sG4f7BUtKbSeVkyGrhGwM78k+aH2sO4ICjwOIghwpKGtSjWHGkpRfRwqjHntYR2v7/NAe1hnnO/VHdEe1oWW33euiZls0B7WfYARLlAsf2QntId1B9LnXQNHmqXmXRPOaA/rnjvfVbFXe1j38bLXrDM90pq9VntYF1tmRilIzyhXaw/r8ryufDeyzHw3mtQaS2f2ubJxeIls3JaejX9ijaW7zTU1fMaSzwpnyuixn4yWbivAOzFFAbo5UqTraJ/reJKJmuldrLF09LBw9kY7Ijw0vcFBv58WwYDf3xHM0d+JIddEGsSzLEnpPkXA2gkTlbTDzF3bmC8PPy6qKxLjTaLYtQuoQBVLUrqpDc59RxBoYEEWqMhVN5LLkpTOPI6QtYPqb5FbQSI02en31we7ZN81BZv9/sQQ7X5USac9sdbjKVY4daVe3t/F8vXmqWjWnsrOoegf+V6fRaMd6vMIjCdY4dSZ98JLWaptSFYtoE2OdSIg3CPbamCiTNa6iOZ6aQMSLCAcOt8DaCitlFuw/BnZZLG9cYfISch940DvGoSmWEA4dObd1CVUpX1MtqlA3OrKdF03AjJB9PbIcyjwODeXOHXiTpLV8NaoY7FzxYCOcirkr3NrhVNnnvg6tRZ9xf/i1FMewH7XsdulMzfth52WaUuY9UzWZtgPkmAIO63lpXHrzM3z9vX1hhY8Ma7VEdmMS7ghk6Yz+6lvt+mbpMtLqMCla06dZyP4Nc2WoTOv3EcTdJHTdoHjtB1p40Y2GTpzO92N/S5AvkcgUrpV0JlHvgu4oZebpMjUmWJ8mi5QJvfMNxU0g+XbBvWm4o2LuYGDLDrTfOZFmk9lQfUepV12pKVb7dXvUejY816MK7vIqjPFukMk7GvsouNjIR2GtE695RmcraArO3lTlksjsutMc88cbXOsd1C5SjciP1TLNX30u8+4WjoL6Yixp/XhUL8hi9pvyMrmfFwjk0V0dIoMD3s2sEQTv2d3KRdmZVGdxPfQ3Ks/3z6/IfTWR3//tmsPf7sQS+qWxwXduWKa/wDLyatDNNPjsQAAAABJRU5ErkJggg==" InformativeScreenshot="69622cc8bde4991523ea889a77683143.jpg" Selector="&lt;html app='chrome.exe' title='政府電子採購網-標案查詢標案查詢' /&gt;" Url="https://web.pcc.gov.tw/prkms/tender/org/bulletion/indexBulletion" />
+      </uix:NApplicationCard.TargetApp>
+    </uix:NApplicationCard>
+  </Sequence>
+</Activity>
